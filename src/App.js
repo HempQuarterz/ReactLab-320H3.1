@@ -1,25 +1,12 @@
 import React, { useState } from 'react';
+import Score from './Components/Score';
+import Learner from './Components/Learner';
+import Styles from '../src/index.css';
 
-const Score = ({ date, score }) => (
-  <div>
-    <p>Date: {date}</p>
-    <p>Score: {score}</p>
-  </div>
-);
-
-const Learner = ({ name, bio, scores }) => (
-  <div>
-    <h2>{name}</h2>
-    <p>{bio}</p>
-    {scores.map((score, index) => (
-      <Score key={index} date={score.date} score={score.score} />
-    ))}
-  </div>
-);
 
 
 const App = () => {
-  const [learnerData] = useState({
+  const [learnerData, setLearnerData] = useState({
     learners: [
       {
         name: 'Cait Yomorta',
@@ -32,7 +19,7 @@ const App = () => {
       },
       {
         name: 'Holly Baird',
-        bio: 'Eum molestiae explicabo deserunt, maiores quod eaque omnis tenetur vero ducimus, magnam autem! Quia facere quaerat eum repudiandae dolorum eligendi iure quae. Eos id possimus accusantium, earum animi modi hic.',
+        bio: 'Eum molestiae explicabo deserunt, maiores quod eaque omnis tenetur vero ducimus, magnam autem! Quia facere quaerat eum repudiandae dolorum eligendi iure quae. Eos id possimus accusantium, earum animi modi hic. lorem urn',
         scores: [
           { date: '2018-12-14', score: 88 },
           { date: '2019-01-09', score: 79 },
@@ -52,6 +39,13 @@ const App = () => {
     ],
   });
 
+  const updateLearnerName = () => {
+    setLearnerData((prevState) => {
+      const updatedLearners = [...prevState.learners];
+      updatedLearners[0].name = 'Updated Name'; 
+      return { ...prevState, learners: updatedLearners }; 
+    });
+  };
 
 
   return (

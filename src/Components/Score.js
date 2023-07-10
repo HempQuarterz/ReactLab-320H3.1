@@ -1,8 +1,8 @@
 import React from 'react'
 
 const Score = ({date, score}) => (
-    <div>
-    <p>Date: {date}</p>
+    <div className='scoreTable'>
+    <h3>Date: {date}</h3>
     <p>Score: {score}</p>
     </div>
   );

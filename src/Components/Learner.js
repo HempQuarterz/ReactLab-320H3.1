@@ -3,7 +3,7 @@ import Score from './Score';
 
 const Learner = ({ name, bio, scores }) => (
   
-    <div>
+    <div className='learnerTable'>
         <h2>{name}</h2>
         <p>{bio}</p>
         {scores.map((score,index) => (
